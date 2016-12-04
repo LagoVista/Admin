@@ -1,6 +1,6 @@
 # LagoVista.Common
 
-Provides a layer that makes it quicker to store object graphs to cloud table and document db storage.
+Provides User, Organization and Location Storage for LagoVista IoT and Device Framework
 
 Very Early Unstable and Prerelease software for Developing .NET applications with Devices, IoT and Home Automation.
 

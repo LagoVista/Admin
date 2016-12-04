@@ -25,6 +25,8 @@ foreach( $child in $children)
     else{
         $content.package.metadata.version = $major +"." + $minor + ".0"
     }
-
-    Write-Output "Setting nuget package version: " $content.package.metadata.version
+ 
+    Write-Output $child.fullName + "Setting nuget package version: " + $content.package.metadata.version
+	$content.Save($child.FullName)
 }
+
