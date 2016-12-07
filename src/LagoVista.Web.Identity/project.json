@@ -7,7 +7,7 @@
     "NETStandard.Library": "1.6.1",
     "Microsoft.AspNetCore.Identity": "1.1.0",
     "System.IdentityModel.Tokens": "5.0.0-rc1-211161024",
-    "System.IdentityModel.Tokens.Jwt": "5.0.0",
+    "System.IdentityModel.Tokens.Jwt": "5.1.0",
     "LagoVista.UserManagement": "0.8.0-*",
     "LagoVista.CloudStorage": "0.8.3-alpha01348",
     "LagoVista.Core": "0.8.3-alpha01292"
