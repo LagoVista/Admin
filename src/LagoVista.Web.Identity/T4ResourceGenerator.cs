@@ -1,7 +1,8 @@
 ﻿using System.Threading;
-
+using System.Reflection;
+using System.Globalization;
 //LocalizationResources:IdentityResources:Login_Email
-namespace LagoVista.Web.Identity.Resources.LocalizationResources
+namespace LagoVista.Common.Web.Identity.Resources.LocalizationResources
 {
 	public class IdentityResources
 	{
@@ -17,7 +18,7 @@ namespace LagoVista.Web.Identity.Resources.LocalizationResources
 			{
                 if (object.ReferenceEquals(resourceMan, null)) 
 				{
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagoVista.Web.Identity.LocalizationResources.IdentityResources", typeof(IdentityResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagoVista.Common.Web.Identity.LocalizationResources.IdentityResources", typeof(IdentityResources).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -30,7 +31,11 @@ namespace LagoVista.Web.Identity.Resources.LocalizationResources
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private static string GetResourceString(string key, params string[] tokens)
 		{
+#if NET461
 			var culture = Thread.CurrentThread.CurrentCulture;
+#else
+			var culture = CultureInfo.CurrentCulture;
+#endif
             var str = ResourceManager.GetString(key, culture);
 
 			for(int i = 0; i < tokens.Length; i += 2)

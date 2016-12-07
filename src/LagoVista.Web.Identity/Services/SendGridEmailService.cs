@@ -1,6 +1,8 @@
 ﻿using LagoVista.UserManagement.Interfaces;
 using LagoVista.UserManagement.Interfaces.Managers;
 using LagoVista.Web.Identity.Interfaces;
+using MailKit.Net.Smtp;
+using MimeKit;
 using System;
 using System.Threading.Tasks;
 
@@ -17,14 +19,8 @@ namespace LagoVista.Web.Identity.Services
             _appConfig = appConfig;
         }
 
-        public Task SendAsync(string email, string subject, string body)
+        public async Task SendAsync(string email, string subject, string body)
         {
-            var client = new System.Net.Mail.SmtpClient(_settings.SmtpServer.Uri, Convert.ToInt32(587));
-            client.Port = 587;
-            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.EnableSsl = true;
-            client.Credentials = new System.Net.NetworkCredential(_settings.SmtpServer.UserName, _settings.SmtpServer.Password);
 
             body = $@"<body>
 <img src=""{_appConfig.AppLogo}"" />
@@ -33,12 +29,39 @@ namespace LagoVista.Web.Identity.Services
 {body}
 </body>";
 
+            var msg = new MimeMessage()
+            {
+                Subject = subject,
+                Body = new TextPart("html", body),
+            };
+
+            msg.To.Add(new MailboxAddress(email));
+            msg.From.Add(new MailboxAddress(_settings.SmtpFrom));
+
+            using (var client = new SmtpClient())
+            {
+                await client.ConnectAsync(_settings.SmtpServer.Uri.ToString(), 587, false);
+                await client.AuthenticateAsync(_settings.SmtpServer.UserName, _settings.SmtpServer.Password);
+                await client.SendAsync(msg);
+                await client.DisconnectAsync(true);
+            }
+
+            /*
+            var client = new System.Net.Mail.SmtpClient(_settings.SmtpServer.Uri, Convert.ToInt32(587));
+            client.Port = 587;
+            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.EnableSsl = true;
+            client.Credentials = new System.Net.NetworkCredential(_settings.SmtpServer.UserName, _settings.SmtpServer.Password);
+
+
             var mail = new System.Net.Mail.MailMessage(_settings.SmtpFrom, email);
             mail.IsBodyHtml = true;
             mail.Subject = subject;
             mail.Body = body;
 
-            return client.SendMailAsync(mail);
+            return client.SendMailAsync(mail);*/
+
         }
     }
 }

@@ -50,7 +50,8 @@ This template if free for redistribution in accordance with the same license.
 	 RootNamespace = Project.Properties.Item("RootNamespace").Value.ToString();
 #>
 using System.Threading;
-
+using System.Reflection;
+using System.Globalization;
 <#
 try{
 	AllEntries = new List<ResourceEntry>();
@@ -114,7 +115,7 @@ try{
 			{
                 if (object.ReferenceEquals(resourceMan, null)) 
 				{
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("<#=string.Format("{0}.{1}{2}", RootNamespace, entry.Path + "." + entry.File, entry.Type) #>", typeof(<#=entry.File#>).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("<#=string.Format("{0}.{1}{2}", RootNamespace, entry.Path + "." + entry.File, entry.Type) #>", typeof(<#=entry.File#>).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -127,7 +128,11 @@ try{
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private static string GetResourceString(string key, params string[] tokens)
 		{
+#if NET461
 			var culture = Thread.CurrentThread.CurrentCulture;
+#else
+			var culture = CultureInfo.CurrentCulture;
+#endif
             var str = ResourceManager.GetString(key, culture);
 
 			for(int i = 0; i < tokens.Length; i += 2)
