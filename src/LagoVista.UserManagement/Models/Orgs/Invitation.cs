@@ -7,6 +7,7 @@ using System;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
+    [EntityDescription(Name: "Invitation", Domain: Domains.OrganizationDomain, Description: "Invitations are a storage object that used to invite additional people to partipipate in an organization.")]
     public class Invitation : TableStorageEntity, IValidateable
     {
         public enum StatusTypes

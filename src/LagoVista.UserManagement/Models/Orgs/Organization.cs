@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
+    [EntityDescription(Name: "Organization", Domain: Domains.OrganizationDomain, Description: "An organization is a container that can be used to group user, locations, devices, device configurations and any other data or functionalality.")]
     public class Organization : UserManagementBase, INamedEntity, IValidateable
     {
         public Organization()

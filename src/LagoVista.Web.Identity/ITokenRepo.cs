@@ -1,4 +1,5 @@
-﻿using LagoVista.UserManagement.Models;
+﻿using LagoVista.Core.Authentication.Models;
+using LagoVista.UserManagement.Models;
 using System.Threading.Tasks;
 
 namespace LagoVista.Web.Identity.Repos

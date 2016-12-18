@@ -6,6 +6,7 @@ using System;
 
 namespace LagoVista.UserManagement.Models.Account
 {
+    [EntityDescription(Name:"Accounts for Location", Domain:Domains.UserDomain, Description:"Cross Reference Table that can be used to relate a app user to a location within an organization.")]
     public class LocationAccount : TableStorageEntity, IValidateable, ITableStorageAuditableEntity
     {
         /* Id will becomposed o */

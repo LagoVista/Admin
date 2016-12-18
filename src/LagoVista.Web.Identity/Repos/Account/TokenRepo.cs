@@ -3,6 +3,7 @@ using LagoVista.Core.PlatformSupport;
 using LagoVista.CloudStorage.Storage;
 using LagoVista.UserManagement.Models;
 using LagoVista.Web.Identity.Interfaces;
+using LagoVista.Core.Authentication.Models;
 
 namespace LagoVista.Web.Identity.Repos.Account
 {

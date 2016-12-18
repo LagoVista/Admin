@@ -6,6 +6,7 @@ using System;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
+    [EntityDescription(Name: "Organization Account Relationship", Domain: Domains.OrganizationDomain, Description: "The Organization Account Relationship table is used to map accounts to an organization.")]
     public class OrganizationAccount : TableStorageEntity, IValidateable, ITableStorageAuditableEntity
     {
         /* Id will becomposed o */

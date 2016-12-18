@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LagoVista.Core;
+using LagoVista.Core.Authentication.Models;
 
 namespace LagoVista.Web.Identity.Managers
 {

@@ -8,6 +8,7 @@ using System;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
+    [EntityDescription(Name: "Organization Location Relationship", Domain: Domains.OrganizationDomain, Description: "An Organization can have Many Locations.  Locations are used to furhter organize resources.")]
     public class OrganizationLocation : UserManagementBase, INamedEntity, IValidateable
     {
         [FormField(LabelResource: Resources.UserManagementResources.Names.Organization, IsRequired:true, ResourceType: typeof(Resources.UserManagementResources))]
