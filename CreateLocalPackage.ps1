@@ -4,6 +4,8 @@ dotnet build ./**/project.json -c release
 $scriptPath = Split-Path $MyInvocation.MyCommand.Path
 Write-Output $scriptPath
 
+Set-Location $scriptPath
+
 . ./UpdateNuspecVersion.ps1 -preRelease alpha -major 0 -minor 8
 
 $children = gci ./ -recurse *.nuspec
