@@ -1,9 +1,11 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.UserManagement.Resources;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Models;
 
 namespace LagoVista.UserManagement.ViewModels.Account
 {
+    [EntityDescription(Domains.SecurityViewModels, UserManagementResources.Names.ResetPassword_Title, UserManagementResources.Names.ResetPassword_Help, UserManagementResources.Names.ResetPassword_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class ResetPasswordViewModel : IValidateable
     {
         [FormField(LabelResource: UserManagementResources.Names.AppUser_Email, FieldType: FieldTypes.Email, IsRequired: true, ResourceType: typeof(UserManagementResources))]

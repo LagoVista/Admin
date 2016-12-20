@@ -1,14 +1,13 @@
 ﻿using LagoVista.Core.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LagoVista.UserManagement.Models.Orgs;
 using LagoVista.Core.Models;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.OrganizationViewModels, UserManagementResources.Names.UpdateLocationVM_Title, UserManagementResources.Names.UpdateLocationVM_Help, UserManagementResources.Names.UpdateLocatoinVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class UpdateLocationViewModel : LocationViewModel
     {
         [FormField(FieldType: FieldTypes.Hidden)]

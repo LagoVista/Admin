@@ -1,9 +1,11 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.UserManagement.Resources;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Models;
 
 namespace LagoVista.UserManagement.ViewModels.ManageAccount
 {
+    [EntityDescription(Domains.SecurityViewModels, UserManagementResources.Names.ChangePasswordVM_Title, UserManagementResources.Names.ChangePasswordVM_Help, UserManagementResources.Names.ChangePasswordVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class ChangePasswordViewModel : IValidateable
     {
         [FormField(LabelResource: UserManagementResources.Names.AppUser_OldPassword, FieldType: FieldTypes.Password, IsRequired: true, ResourceType: typeof(UserManagementResources))]

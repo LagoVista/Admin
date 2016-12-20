@@ -2,11 +2,12 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Resources;
 using System;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
-    [EntityDescription(Name: "Organization Account Relationship", Domain: Domains.OrganizationDomain, Description: "The Organization Account Relationship table is used to map accounts to an organization.")]
+    [EntityDescription(Domains.OrganizationDomain, UserManagementResources.Names.OrganizationAccountRole_Title, UserManagementResources.Names.Organization_Help, UserManagementResources.Names.Organization_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class OrganizationAccount : TableStorageEntity, IValidateable, ITableStorageAuditableEntity
     {
         /* Id will becomposed o */

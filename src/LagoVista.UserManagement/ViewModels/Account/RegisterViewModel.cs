@@ -2,9 +2,11 @@
 using System;
 using LagoVista.UserManagement.Resources;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Models;
 
 namespace LagoVista.UserManagement.ViewModels.Account
 {
+    [EntityDescription(Domains.UserViewModels, UserManagementResources.Names.RegisterVM_Title, UserManagementResources.Names.RegisterVM_Help, UserManagementResources.Names.RegisterVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class RegisterViewModel : IValidateable
     {
         [FormField(LabelResource: UserManagementResources.Names.AppUser_FirstName, FieldType: FieldTypes.Text, IsRequired: true, ResourceType: typeof(UserManagementResources))]

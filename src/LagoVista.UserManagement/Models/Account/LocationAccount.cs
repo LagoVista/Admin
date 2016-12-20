@@ -2,11 +2,12 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Resources;
 using System;
 
 namespace LagoVista.UserManagement.Models.Account
 {
-    [EntityDescription(Name:"Accounts for Location", Domain:Domains.UserDomain, Description:"Cross Reference Table that can be used to relate a app user to a location within an organization.")]
+    [EntityDescription(Domains.UserDomain, UserManagementResources.Names.LocationAccount_Title, UserManagementResources.Names.LocationAccount_Help, UserManagementResources.Names.LocationAccount_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class LocationAccount : TableStorageEntity, IValidateable, ITableStorageAuditableEntity
     {
         /* Id will becomposed o */

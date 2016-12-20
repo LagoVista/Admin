@@ -3,12 +3,14 @@ using LagoVista.Core.Geo;
 using LagoVista.UserManagement.Models.Orgs;
 using LagoVista.Core.Validation;
 using System;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.OrganizationViewModels, UserManagementResources.Names.LocationVM_Title, UserManagementResources.Names.LocationVM_Help, UserManagementResources.Names.LocationAccount_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class LocationViewModel : IValidateable
     {
-   
         [FormField(LabelResource: Resources.UserManagementResources.Names.Location_LocationName, IsRequired: true, ResourceType: typeof(Resources.UserManagementResources))]
         public String LocationName { get; set; }
 

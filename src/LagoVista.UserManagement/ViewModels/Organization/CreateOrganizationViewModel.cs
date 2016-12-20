@@ -3,9 +3,12 @@ using LagoVista.Core.Models;
 using LagoVista.UserManagement.Models.Orgs;
 using LagoVista.Core.Validation;
 using System;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.OrganizationDomain, UserManagementResources.Names.CreateOrganizationVM_Title, UserManagementResources.Names.CreateOrganizationVM_Help, UserManagementResources.Names.CreateOrganizationVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class CreateOrganizationViewModel : LocationViewModel, IValidateable
     {
         [FormField(LabelResource: Resources.UserManagementResources.Names.Organization_Name, IsRequired: true, ResourceType: typeof(Resources.UserManagementResources))]

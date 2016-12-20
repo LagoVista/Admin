@@ -1,9 +1,12 @@
 ﻿
 using LagoVista.Core.Attributes;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.ViewModels.Account
 {
+    [EntityDescription(Domains.SecurityDomain, UserManagementResources.Names.VerifyCodeVM_Title, UserManagementResources.Names.VerifyCodeVM_Help, UserManagementResources.Names.VerifyCodeVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class VerifyCodeViewModel : IValidateable
     {
         [FormField(IsRequired: true)]

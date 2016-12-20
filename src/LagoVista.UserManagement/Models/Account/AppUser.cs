@@ -7,10 +7,11 @@ using Newtonsoft.Json;
 using LagoVista.Core.Validation;
 using LagoVista.Core;
 using LagoVista.Core.Authentication.Models;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.Models.Account
 {
-    [EntityDescription(Name:"Application User Base Class", Description:"Base Class for implementing ASP.NET Identity in LagoVista Applications", Domain:Domains.UserDomain)]
+    [EntityDescription(Domains.UserDomain, UserManagementResources.Names.AppUser_Title, UserManagementResources.Names.AppUser_Help, UserManagementResources.Names.AppUser_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class AppUser : UserManagementBase, INamedEntity, IValidateable
     {
         public AppUser(String email, String createdBy)

@@ -1,10 +1,11 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.UserManagement.Resources;
 using Newtonsoft.Json;
 using System;
 
 namespace LagoVista.UserManagement.Models
 {
-    [EntityDescription(Name: "Image Details", Domain: Domains.MiscDomain, Description: "Contains meta data necessary to display an image.")]
+    [EntityDescription(Domains.MiscDomain, UserManagementResources.Names.ImageDetails_Title, UserManagementResources.Names.ImageDetails_Description, UserManagementResources.Names.LocationAccountRole_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class ImageDetails
     {
         [JsonProperty("id")]

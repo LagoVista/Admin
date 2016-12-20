@@ -1,10 +1,13 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 using System;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.OrganizationViewModels, UserManagementResources.Names.UpdateOrganizationVM_Title, UserManagementResources.Names.UpdateOrganizationVM_Help, UserManagementResources.Names.UpdateOrganizationVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class UpdateOrganizationViewModel : OrganizationViewModel, IValidateable
     {
         [FormField(IsRequired: true, FieldType: FieldTypes.Hidden)]

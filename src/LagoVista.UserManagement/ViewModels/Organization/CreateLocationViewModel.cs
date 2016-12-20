@@ -2,9 +2,12 @@
 using System;
 using LagoVista.UserManagement.Models.Orgs;
 using LagoVista.Core.Models;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.OrganizationDomain, UserManagementResources.Names.CreateLocationVM_Title, UserManagementResources.Names.CreateOrganizationVM_Help, UserManagementResources.Names.CreateOrganizationVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class CreateLocationViewModel : LocationViewModel
     {
         [FormField(FieldType: FieldTypes.Hidden)]

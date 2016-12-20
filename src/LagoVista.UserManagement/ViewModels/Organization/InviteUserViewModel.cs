@@ -1,12 +1,10 @@
 ﻿using LagoVista.Core.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.OrganizationViewModels, UserManagementResources.Names.InviteUserVM_Title, UserManagementResources.Names.InviteUserVM_Help, UserManagementResources.Names.InviteUserVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class InviteUserViewModel
     {
         [FormField(LabelResource: LagoVista.UserManagement.Resources.UserManagementResources.Names.Common_EmailAddress, FieldType: FieldTypes.Email, IsRequired: true, ResourceType: typeof(LagoVista.UserManagement.Resources.UserManagementResources))]

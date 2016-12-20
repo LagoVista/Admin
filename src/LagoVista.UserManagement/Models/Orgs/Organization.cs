@@ -2,12 +2,13 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Resources;
 using System;
 using System.Collections.Generic;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
-    [EntityDescription(Name: "Organization", Domain: Domains.OrganizationDomain, Description: "An organization is a container that can be used to group user, locations, devices, device configurations and any other data or functionalality.")]
+    [EntityDescription(Domains.OrganizationDomain, UserManagementResources.Names.Organization_Title, UserManagementResources.Names.Organization_Help, UserManagementResources.Names.Organization_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class Organization : UserManagementBase, INamedEntity, IValidateable
     {
         public Organization()

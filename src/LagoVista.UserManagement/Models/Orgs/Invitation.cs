@@ -1,13 +1,14 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
+using LagoVista.UserManagement.Resources;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
-    [EntityDescription(Name: "Invitation", Domain: Domains.OrganizationDomain, Description: "Invitations are a storage object that used to invite additional people to partipipate in an organization.")]
+    [EntityDescription(Domains.OrganizationDomain, UserManagementResources.Names.Role_Title, UserManagementResources.Names.Role_Help, UserManagementResources.Names.Role_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class Invitation : TableStorageEntity, IValidateable
     {
         public enum StatusTypes

@@ -3,9 +3,11 @@ using System;
 using LagoVista.UserManagement.Resources;
 using LagoVista.Core.Models;
 using LagoVista.UserManagement.Models.Orgs;
+using LagoVista.UserManagement.Models;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.UserViewModels, UserManagementResources.Names.AcceptInviteVM_Title, UserManagementResources.Names.AcceptInviteVM_Help, UserManagementResources.Names.AcceptInviteVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class AcceptInviteViewModel
     {
         [FormField(FieldType: FieldTypes.Hidden, IsRequired: true)]

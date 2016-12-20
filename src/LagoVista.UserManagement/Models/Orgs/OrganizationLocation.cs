@@ -5,10 +5,11 @@ using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using Newtonsoft.Json;
 using System;
+using LagoVista.UserManagement.Resources;
 
 namespace LagoVista.UserManagement.Models.Orgs
 {
-    [EntityDescription(Name: "Organization Location Relationship", Domain: Domains.OrganizationDomain, Description: "An Organization can have Many Locations.  Locations are used to furhter organize resources.")]
+    [EntityDescription(Domains.OrganizationDomain, UserManagementResources.Names.Organization_Location_Title, UserManagementResources.Names.Organization_Location_Help, UserManagementResources.Names.Organization_Location_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class OrganizationLocation : UserManagementBase, INamedEntity, IValidateable
     {
         [FormField(LabelResource: Resources.UserManagementResources.Names.Organization, IsRequired:true, ResourceType: typeof(Resources.UserManagementResources))]

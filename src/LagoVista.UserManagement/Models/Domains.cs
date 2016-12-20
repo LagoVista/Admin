@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Models.UIMetaData;
+using System;
 
 namespace LagoVista.UserManagement.Models
 {
+    [DomainDescriptor]
     public class Domains
     {
         public const string UserDomain = "UserDomain";
@@ -14,5 +14,166 @@ namespace LagoVista.UserManagement.Models
         public const string SecurityDomain = "SecurityDomain";
         public const string SecurityViewModels = "SecurityViewModels";
         public const string MiscDomain = "MiscDomain";
+
+        [DomainDescription(UserDomain)]
+        public DomainDescription UserDomainDescription
+        {
+            get
+            {
+                return new DomainDescription()
+                {
+                    Description = "Models and Data Structures that allow a user to create or update entities associated with users.",
+                    DomainType = DomainDescription.DomainTypes.BusinessObject,
+                    Name = "User",
+                    CurrentVersion = new Core.Models.VersionInfo()
+                    {
+                        Major = 0,
+                        Minor = 8,
+                        Build = 001,
+                        DateStamp = new DateTime(2016, 12, 20),
+                        Revision = 1,
+                        ReleaseNotes = "Initial unstable preview"
+                    }
+                };
+            }
+        }
+
+        [DomainDescription(UserViewModels)]
+        public DomainDescription UserViewModelsDomainDescription
+        {
+            get
+            {
+                return new DomainDescription()
+                {
+                    Description = "View Models that allow a user to create or update entities associated with users.",
+                    DomainType = DomainDescription.DomainTypes.BusinessObject,
+                    Name = "User View Models",
+                    CurrentVersion = new Core.Models.VersionInfo()
+                    {
+                        Major = 0,
+                        Minor = 8,
+                        Build = 001,
+                        DateStamp = new DateTime(2016, 12, 20),
+                        Revision = 1,
+                        ReleaseNotes = "Initial unstable preview"
+                    }
+                };
+            }
+        }
+
+        [DomainDescription(OrganizationDomain)]
+        public DomainDescription OrganizationDomainDescription
+        {
+            get
+            {
+                return new DomainDescription()
+                {
+                    Description = "Models and Data Structures used to create or update entities assocaiated with an organiztion.",
+                    DomainType = DomainDescription.DomainTypes.BusinessObject,
+                    Name = "Organization",
+                    CurrentVersion = new Core.Models.VersionInfo()
+                    {
+                        Major = 0,
+                        Minor = 8,
+                        Build = 001,
+                        DateStamp = new DateTime(2016, 12, 20),
+                        Revision = 1,
+                        ReleaseNotes = "Initial unstable preview"
+                    }
+                };
+            }
+        }
+
+        [DomainDescription(OrganizationViewModels)]
+        public DomainDescription OrganizationViewModelsDomainDescription
+        {
+            get
+            {
+                return new DomainDescription()
+                {
+                    Description = "View Models that are used to create or update entities associated with an organization.",
+                    DomainType = DomainDescription.DomainTypes.BusinessObject,
+                    Name = "Organization View Models",
+                    CurrentVersion = new Core.Models.VersionInfo()
+                    {
+                        Major = 0,
+                        Minor = 8,
+                        Build = 001,
+                        DateStamp = new DateTime(2016, 12, 20),
+                        Revision = 1,
+                        ReleaseNotes = "Initial unstable preview"
+                    }
+                };
+            }
+        }
+
+        [DomainDescription(SecurityDomain)]
+        public DomainDescription SecurityDomainDescription
+        {
+            get
+            {
+                return new DomainDescription()
+                {
+                    Description = "Models and Data Strucutes that are used to authenticate or authorize a user",
+                    DomainType = DomainDescription.DomainTypes.BusinessObject,
+                    Name = "Security",
+                    CurrentVersion = new Core.Models.VersionInfo()
+                    {
+                        Major = 0,
+                        Minor = 8,
+                        Build = 001,
+                        DateStamp = new DateTime(2016, 12, 20),
+                        Revision = 1,
+                        ReleaseNotes = "Initial unstable preview"
+                    }
+                };
+            }
+        }
+
+        [DomainDescription(SecurityViewModels)]
+        public DomainDescription SecurityViewModelsDomainDescription
+        {
+            get
+            {
+                return new DomainDescription()
+                {
+                    Description = "View Models that are used to authenticate or authorize a user.",
+                    DomainType = DomainDescription.DomainTypes.BusinessObject,
+                    Name = "Security View Models",
+                    CurrentVersion = new Core.Models.VersionInfo()
+                    {
+                        Major = 0,
+                        Minor = 8,
+                        Build = 001,
+                        DateStamp = new DateTime(2016, 12, 20),
+                        Revision = 1,
+                        ReleaseNotes = "Initial unstable preview"
+                    }
+                };
+            }
+        }
+
+        [DomainDescription(MiscDomain)]
+        public DomainDescription MiscDomainDescription
+        {
+            get
+            {
+                return new DomainDescription()
+                {
+                    Description = "A collection of miscellaneous classes that provide strucutes and data to othe parts of the system.",
+                    DomainType = DomainDescription.DomainTypes.BusinessObject,
+                    Name = "miscellaneous",
+                    CurrentVersion = new Core.Models.VersionInfo()
+                    {
+                        Major = 0,
+                        Minor = 8,
+                        Build = 001,
+                        DateStamp = new DateTime(2016, 12, 20),
+                        Revision = 1,
+                        ReleaseNotes = "Initial unstable preview"
+                    }
+                };
+            }
+        }
     }
 }

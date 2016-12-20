@@ -1,12 +1,11 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.UserManagement.Models;
+using LagoVista.UserManagement.Resources;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LagoVista.UserManagement.ViewModels.Organization
 {
+    [EntityDescription(Domains.OrganizationViewModels, UserManagementResources.Names.OrganizationVM_Title, UserManagementResources.Names.OrganizationVM_Help, UserManagementResources.Names.OrganizationVM_Description, EntityDescriptionAttribute.EntityTypes.ViewModel, typeof(UserManagementResources))]
     public class OrganizationViewModel
     {
         [FormField(LabelResource: Resources.UserManagementResources.Names.Organization_Name, IsRequired: true, ResourceType: typeof(Resources.UserManagementResources))]
