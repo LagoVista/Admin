@@ -16,7 +16,7 @@ namespace LagoVista.UserManagement.Models
         public const string MiscDomain = "MiscDomain";
 
         [DomainDescription(UserDomain)]
-        public DomainDescription UserDomainDescription
+        public static DomainDescription UserDomainDescription
         {
             get
             {
@@ -39,7 +39,7 @@ namespace LagoVista.UserManagement.Models
         }
 
         [DomainDescription(UserViewModels)]
-        public DomainDescription UserViewModelsDomainDescription
+        public static DomainDescription UserViewModelsDomainDescription
         {
             get
             {
@@ -62,7 +62,7 @@ namespace LagoVista.UserManagement.Models
         }
 
         [DomainDescription(OrganizationDomain)]
-        public DomainDescription OrganizationDomainDescription
+        public static DomainDescription OrganizationDomainDescription
         {
             get
             {
@@ -85,7 +85,7 @@ namespace LagoVista.UserManagement.Models
         }
 
         [DomainDescription(OrganizationViewModels)]
-        public DomainDescription OrganizationViewModelsDomainDescription
+        public static DomainDescription OrganizationViewModelsDomainDescription
         {
             get
             {
@@ -108,7 +108,7 @@ namespace LagoVista.UserManagement.Models
         }
 
         [DomainDescription(SecurityDomain)]
-        public DomainDescription SecurityDomainDescription
+        public static DomainDescription SecurityDomainDescription
         {
             get
             {
@@ -131,7 +131,7 @@ namespace LagoVista.UserManagement.Models
         }
 
         [DomainDescription(SecurityViewModels)]
-        public DomainDescription SecurityViewModelsDomainDescription
+        public static DomainDescription SecurityViewModelsDomainDescription
         {
             get
             {
@@ -154,7 +154,7 @@ namespace LagoVista.UserManagement.Models
         }
 
         [DomainDescription(MiscDomain)]
-        public DomainDescription MiscDomainDescription
+        public static DomainDescription MiscDomainDescription
         {
             get
             {
