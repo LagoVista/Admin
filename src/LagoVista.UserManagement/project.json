@@ -2,8 +2,8 @@
   "version": "0.8.0-*",
   "supports": {},
   "dependencies": {
-    "LagoVista.Core": "0.8.19-alpha00944",
-    "LagoVista.Core.Authentication": "0.8.19-alpha00944",
+    "LagoVista.Core": "0.8.22-alpha01299",
+    "LagoVista.Core.Authentication": "0.8.22-alpha01299",
     "Newtonsoft.Json": "9.0.1"
   },
   "frameworks": {
