@@ -10,8 +10,8 @@
     "System.IdentityModel.Tokens.Jwt": "5.1.0",
     "LagoVista.UserManagement": "0.8.0-*",
     "Newtonsoft.Json": "9.0.1",
-    "LagoVista.Core": "0.8.22-alpha01299",
-    "LagoVista.Core.Authentication": "0.8.22-alpha01299",
+    "LagoVista.Core": "0.8.55-alpha01054",
+    "LagoVista.Core.Authentication": "0.8.55-alpha01054",    
     "LagoVista.CloudStorage": "0.8.22-alpha01344"
   },
 
