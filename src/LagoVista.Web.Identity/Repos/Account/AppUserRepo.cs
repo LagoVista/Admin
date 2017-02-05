@@ -17,6 +17,14 @@ namespace LagoVista.Web.Identity.Repos.Account
 
         }
 
+        protected override bool ShouldConsolidateCollections
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public async Task CreateAsync(AppUser user)
         {
             await CreateDocumentAsync(user);

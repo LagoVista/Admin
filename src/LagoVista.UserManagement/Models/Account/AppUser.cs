@@ -14,6 +14,8 @@ namespace LagoVista.UserManagement.Models.Account
     [EntityDescription(Domains.UserDomain, UserManagementResources.Names.AppUser_Title, UserManagementResources.Names.AppUser_Help, UserManagementResources.Names.AppUser_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
     public class AppUser : UserManagementBase, INamedEntity, IValidateable
     {
+
+
         public AppUser(String email, String createdBy)
         {
             Id = Guid.NewGuid().ToId();
