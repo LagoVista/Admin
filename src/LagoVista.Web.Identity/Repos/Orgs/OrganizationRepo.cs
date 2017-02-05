@@ -5,25 +5,23 @@ using LagoVista.Core.PlatformSupport;
 using System.Linq;
 using LagoVista.UserManagement.Models.Orgs;
 using LagoVista.UserManagement.Interfaces.Repos.Orgs;
-using System;
 using Microsoft.Azure.Documents;
 
 namespace LagoVista.Web.Identity.Repos.Orgs
 {
     public class OrganizationRepo : DocumentDBRepoBase<Organization>, IOrganizationRepo
     {
+        bool _shouldConsolidateCollections;        
+
         public OrganizationRepo(IAppUserManagementSettings userManagementSettings, ILogger logger) :
             base(userManagementSettings.UserStorage.Uri, userManagementSettings.UserStorage.AccessKey, userManagementSettings.UserStorage.ResourceName, logger)
         {
-
+            _shouldConsolidateCollections = userManagementSettings.ShouldConsolidateCollections;
         }
 
         protected override bool ShouldConsolidateCollections
         {
-            get
-            {
-                return true;
-            }
+            get { return _shouldConsolidateCollections; }
         }
 
         public Task AddOrganizationAsync(Organization account)

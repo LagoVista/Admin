@@ -14,10 +14,17 @@ namespace LagoVista.Web.Identity.Repos.Orgs
 {
     public class OrganizationLocationRepo : DocumentDBRepoBase<OrganizationLocation>, IOrganizationLocationRepo
     {
+        bool _shouldConsolidateCollections;
+
         public OrganizationLocationRepo(IAppUserManagementSettings userManagementSettings, ILogger logger) :
             base(userManagementSettings.UserStorage.Uri, userManagementSettings.UserStorage.AccessKey, userManagementSettings.UserStorage.ResourceName, logger)
         {
+            _shouldConsolidateCollections = userManagementSettings.ShouldConsolidateCollections;
+        }
 
+        protected override bool ShouldConsolidateCollections
+        {
+            get { return _shouldConsolidateCollections; }
         }
 
         public Task AddLocationAsync(OrganizationLocation account)

@@ -17,5 +17,7 @@ namespace LagoVista.Web.Identity.Interfaces
         
         TimeSpan AccessTokenExpiresTimeSpan { get; }
         TimeSpan RefreshTokenExpiresTimeSpan { get; }
+
+        bool ShouldConsolidateCollections { get; }
     }
 }
