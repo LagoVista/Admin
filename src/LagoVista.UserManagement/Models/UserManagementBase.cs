@@ -7,8 +7,12 @@ using System;
 
 namespace LagoVista.UserManagement.Models
 {
-    public abstract class UserManagementBase : ModelBase, IIDEntity, IAuditableEntity
+    public abstract class UserManagementBase : ModelBase, IIDEntity, IAuditableEntity, INoSQLEntity
     {
+        public String EntityType { get; set; }
+        public String DatabaseName { get; set; }
+
+
         [JsonProperty("id")]
         [FormField(LabelResource: Resources.UserManagementResources.Names.Common_Id, ResourceType: typeof(Resources.UserManagementResources))]
         public String Id { get; set; }

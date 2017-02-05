@@ -18,6 +18,14 @@ namespace LagoVista.Web.Identity.Repos.Orgs
 
         }
 
+        protected override bool ShouldConsolidateCollections
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public Task AddOrganizationAsync(Organization account)
         {
             return CreateDocumentAsync(account);
