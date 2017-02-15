@@ -11,10 +11,16 @@ namespace LagoVista.Web.Identity.Repos.Account
 {
     public class AppUserRepo : DocumentDBRepoBase<AppUser>, IAccountRepo
     {
+        bool _shouldConsolidateCollections;
         public AppUserRepo(IAppUserManagementSettings userManagementSettings, ILogger logger) : 
             base(userManagementSettings.UserStorage.Uri, userManagementSettings.UserStorage.AccessKey, userManagementSettings.UserStorage.ResourceName, logger)
         {
+            _shouldConsolidateCollections = userManagementSettings.ShouldConsolidateCollections;
+        }
 
+        protected override bool ShouldConsolidateCollections
+        {
+            get { return _shouldConsolidateCollections; }
         }
 
         public async Task CreateAsync(AppUser user)
