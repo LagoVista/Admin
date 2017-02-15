@@ -3,16 +3,16 @@
 
   "dependencies": {
     "Twilio": "5.0.0-rca1",
-    "MailKit": "1.10.1",
+    "MailKit": "1.10.2",
     "NETStandard.Library": "1.6.1",
     "Microsoft.AspNetCore.Identity": "1.1.0",
     "System.IdentityModel.Tokens": "5.0.0-rc1-211161024",
-    "System.IdentityModel.Tokens.Jwt": "5.1.0",
+    "System.IdentityModel.Tokens.Jwt": "5.1.2",
     "LagoVista.UserManagement": "0.8.0-*",
     "Newtonsoft.Json": "9.0.1",
-    "LagoVista.CloudStorage": "0.8.22-alpha01344",
-    "LagoVista.Core.Authentication": "0.8.25-alpha00688",
-    "LagoVista.Core": "0.8.25-alpha00688"
+    "LagoVista.CloudStorage": "0.8.76-alpha00689",
+    "LagoVista.Core": "0.8.75-alpha01398",
+    "LagoVista.Core.Authentication": "0.8.75-alpha01398"
   },
 
   "frameworks": {
@@ -21,7 +21,7 @@
       "imports": [ "dnxcore50", "portable-net45+win8" ]
     },
     "net461": {
-      "dependencies": { "Microsoft.Azure.DocumentDB": "1.11.1" },
+      "dependencies": { "Microsoft.Azure.DocumentDB": "1.11.4" },
       "imports": [ "dotnet5.4", "portable-net451+netcore451+win81" ]
     }
   }
