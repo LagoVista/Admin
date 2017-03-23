@@ -26,7 +26,7 @@
     <PackageReference Include="MailKit" Version="1.12.0" />
     <PackageReference Include="LagoVista.Core" Version="0.8.112-alpha00944" />
     <PackageReference Include="LagoVista.Core.Authentication" Version="0.8.112-alpha00944" />
-    <PackageReference Include="LagoVista.CloudStorage" Version="0.8.112-alpha01163" />
+    <PackageReference Include="LagoVista.CloudStorage" Version="0.8.112-alpha01238" />
     <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.1.2" />
   </ItemGroup>
 
