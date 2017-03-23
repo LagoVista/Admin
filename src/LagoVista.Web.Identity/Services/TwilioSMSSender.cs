@@ -22,10 +22,7 @@ namespace LagoVista.Web.Identity.Services
 
             TwilioClient.Init(_settings.SmsServer.AccountId, _settings.SmsServer.AccessKey);
             var restClient = new TwilioRestClient(_settings.SmsServer.AccountId, _settings.SmsServer.AccessKey);
-
-            var message = new MessageCreator(new PhoneNumber(number), new PhoneNumber(_settings.FromPhoneNumber), contents);
-
-            var resource = await message.CreateAsync(restClient);
+            await MessageResource.CreateAsync(to: new PhoneNumber(number), from: new PhoneNumber(_settings.FromPhoneNumber), body: contents);
         }
     }
 }
