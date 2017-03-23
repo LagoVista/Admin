@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <VersionPrefix>0.8.0</VersionPrefix>
+    <TargetFrameworks>netstandard1.2</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LagoVista.Core" Version="0.8.112-alpha00944" />
+    <PackageReference Include="LagoVista.Core.Authentication" Version="0.8.112-alpha00944" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+  </ItemGroup>
+
+</Project>

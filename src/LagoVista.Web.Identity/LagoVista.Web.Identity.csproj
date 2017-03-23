@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <VersionPrefix>0.8.0</VersionPrefix>
+    <TargetFrameworks>netcoreapp1.0;net461</TargetFrameworks>
+    <AssemblyName>LagoVista.Web.Identity</AssemblyName>
+    <PackageId>LagoVista.Web.Identity</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">$(PackageTargetFallback);dnxcore50;portable-net45+win8</PackageTargetFallback>
+    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'net461' ">$(PackageTargetFallback);dotnet5.4;portable-net451+netcore451+win81</PackageTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LagoVista.UserManagement\LagoVista.UserManagement.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Twilio" Version="5.0.0-rca1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
+    <PackageReference Include="System.IdentityModel.Tokens" Version="5.0.0-rc1-211161024" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+    <PackageReference Include="MailKit" Version="1.12.0" />
+    <PackageReference Include="LagoVista.Core" Version="0.8.112-alpha00944" />
+    <PackageReference Include="LagoVista.Core.Authentication" Version="0.8.112-alpha00944" />
+    <PackageReference Include="LagoVista.CloudStorage" Version="0.8.92-alpha00532" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <PackageReference Include="Microsoft.Azure.DocumentDB" Version="1.12.2" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

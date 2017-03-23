@@ -17,7 +17,6 @@ namespace LagoVista.UserManagement.Models
         [FormField(LabelResource: Resources.UserManagementResources.Names.Common_Id, ResourceType: typeof(Resources.UserManagementResources))]
         public String Id { get; set; }
 
-        private String _creationDate;
         [FormField(LabelResource: Resources.UserManagementResources.Names.Common_CreationDate, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(UserManagementResources), IsRequired: true, IsUserEditable: false)]
         public String CreationDate { get; set; }
 
