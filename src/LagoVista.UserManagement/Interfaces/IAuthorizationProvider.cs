@@ -12,6 +12,6 @@ namespace LagoVista.UserManagement.Interfaces
      */
     public interface IAuthorizationProvider
     {
-        AuthorizationResult AuthorizeAsync(IOwnedEntity entity, EntityHeader org, EntityHeader user);
+     //   AuthorizationResult AuthorizeAsync(IOwnedEntity entity, EntityHeader org, EntityHeader user);
     }
 }
