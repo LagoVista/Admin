@@ -21,9 +21,9 @@ namespace LagoVista.Web.Identity.Managers
             IUserSecurityStampStore<AppUser>
 
     {
-        IAccountRepo _userRepo;
+        IAppUserRepo _userRepo;
 
-        public AspNetCoreUserStore(IAccountRepo userRepo)
+        public AspNetCoreUserStore(IAppUserRepo userRepo)
         {
             _userRepo = userRepo;
         }

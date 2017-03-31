@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.UserManagement.Interfaces.Repos.Account
 {
-    public interface IAccountRepo : IDisposable
+    public interface IAppUserRepo : IDisposable
     {
         Task CreateAsync(AppUser user);
         Task<AppUser> FindByIdAsync(string userId);

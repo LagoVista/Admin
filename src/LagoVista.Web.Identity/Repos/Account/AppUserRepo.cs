@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.Web.Identity.Repos.Account
 {
-    public class AppUserRepo : DocumentDBRepoBase<AppUser>, IAccountRepo
+    public class AppUserRepo : DocumentDBRepoBase<AppUser>, IAppUserRepo
     {
         bool _shouldConsolidateCollections;
         public AppUserRepo(IAppUserManagementSettings userManagementSettings, ILogger logger) : 

@@ -12,7 +12,7 @@ using LagoVista.UserManagement.Resources;
 namespace LagoVista.UserManagement.Models.Account
 {
     [EntityDescription(Domains.UserDomain, UserManagementResources.Names.AppUser_Title, UserManagementResources.Names.AppUser_Help, UserManagementResources.Names.AppUser_Description, EntityDescriptionAttribute.EntityTypes.Dto, typeof(UserManagementResources))]
-    public class AppUser : UserManagementBase, INamedEntity, IValidateable
+    public class AppUser : UserManagementBase, INamedEntity, IValidateable, IOwnedEntity
     {
 
 
@@ -109,5 +109,8 @@ namespace LagoVista.UserManagement.Models.Account
         public bool TwoFactorEnabled { get; set; }
 
         public IList<ThirdPartyLoginInfo> Logins { get; set; }
+        public bool IsPublic { get; set; }
+        public EntityHeader OwnerOrganization { get; set; }
+        public EntityHeader OwnerUser { get; set; }
     }
 }

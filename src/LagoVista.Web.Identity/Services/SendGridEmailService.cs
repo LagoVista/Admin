@@ -1,4 +1,5 @@
-﻿using LagoVista.UserManagement.Interfaces;
+﻿using LagoVista.Core.Interfaces;
+using LagoVista.UserManagement.Interfaces;
 using LagoVista.UserManagement.Interfaces.Managers;
 using LagoVista.Web.Identity.Interfaces;
 using MailKit.Net.Smtp;

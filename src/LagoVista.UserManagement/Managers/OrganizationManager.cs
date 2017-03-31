@@ -16,6 +16,8 @@ using LagoVista.Core;
 using LagoVista.UserManagement.Models.Security;
 using LagoVista.UserManagement.Interfaces.Repos.Security;
 using System.Linq;
+using LagoVista.Core.Managers;
+using LagoVista.Core.Interfaces;
 
 namespace LagoVista.UserManagement.Managers
 {
@@ -31,13 +33,14 @@ namespace LagoVista.UserManagement.Managers
         readonly IInviteUserRepo _inviteUserRepo;
         readonly ILocationRoleRepo _locationRoleRepo;
         readonly IOrganizationRoleRepo _orgRoleRepo;
+        readonly IAppUserRepo _appUserRepo;
         #endregion
 
         #region Ctor
         public OrganizationManager(IOrganizationRepo organizationRepo,
             IOrganizationLocationRepo locationRepo,
             IOrganizationAccountRepo orgAccountRepo,
-            IAccountRepo accountRepo,
+            IAppUserRepo appUserRepo,
             IInviteUserRepo inviteUserRepo,
             ILocationAccountRepo locationAccountRepo,
             ILocationRoleRepo locationRoleRepo,
@@ -45,8 +48,10 @@ namespace LagoVista.UserManagement.Managers
             ISmsSender smsSender,
             IEmailSender emailSender,
             IAppConfig appConfig,
-            ILogger logger) : base(accountRepo, logger, appConfig)
+            ILogger logger) : base( logger, appConfig)
         {
+
+            _appUserRepo = appUserRepo;
             _organizationRepo = organizationRepo;
             _orgAccountRepo = orgAccountRepo;
             _locationRepo = locationRepo;
@@ -100,7 +105,7 @@ namespace LagoVista.UserManagement.Managers
             if (organization.Locations == null) organization.Locations = new List<EntityHeader>();
             organization.Locations.Add(location.ToEntityHeader());
 
-            var currentUser = await AccountRepo.FindByIdAsync(user.Id);
+            var currentUser = await _appUserRepo.FindByIdAsync(user.Id);
             var locationUser = new LocationAccount(organization.Id, location.Id, user.Id)
             {
                 Email = currentUser.Email,
@@ -121,7 +126,7 @@ namespace LagoVista.UserManagement.Managers
 
             currentUser.Organizations.Add(organization.ToEntityHeader());
 
-            await AccountRepo.UpdateAsync(currentUser);
+            await _appUserRepo.UpdateAsync(currentUser);
         }
 
         public async Task UpdateOrganizationAsync(UpdateOrganizationViewModel orgViewModel, EntityHeader user)
@@ -156,7 +161,7 @@ namespace LagoVista.UserManagement.Managers
             invite.DateAccepted = DateTime.Now.ToJSONString();
             await _inviteUserRepo.UpdateInvitationAsync(invite);
 
-            var acceptedUser = await AccountRepo.FindByIdAsync(acceptedUserId);
+            var acceptedUser = await _appUserRepo.FindByIdAsync(acceptedUserId);
             var invitingUser = EntityHeader.Create(invite.InvitedById, invite.InvitedByName);
             var orgHeader = EntityHeader.Create(invite.OrganizationId, invite.OrganizationName);
 
@@ -169,7 +174,7 @@ namespace LagoVista.UserManagement.Managers
 
             acceptedUser.Organizations.Add(orgHeader);
 
-            await AccountRepo.UpdateAsync(acceptedUser);
+            await _appUserRepo.UpdateAsync(acceptedUser);
         }
 
         public async Task RevokeInvitationAsync(String inviteId)
@@ -197,7 +202,7 @@ namespace LagoVista.UserManagement.Managers
         {
             if (await _orgAccountRepo.QueryOrganizationHasAccountByEmailAsync(orgEntityHeader.Id, inviteViewModel.Email))
             {
-                var existingUser = await AccountRepo.FindByEmailAsync(inviteViewModel.Email);
+                var existingUser = await _appUserRepo.FindByEmailAsync(inviteViewModel.Email);
                 var msg = UserManagementResources.InviteUser_AlreadyPartOfOrg.Replace(Tokens.USERS_FULL_NAME, existingUser.Name).Replace(Tokens.EMAIL_ADDR, inviteViewModel.Email);
                 throw new ValidationException("Could not invite user", false, msg);
             }
@@ -246,7 +251,7 @@ namespace LagoVista.UserManagement.Managers
         #region Organization Account Methods
         public async Task AddAccountToOrgAsync(EntityHeader userToAdd, EntityHeader org, EntityHeader addedBy = null)
         {
-            var appUser = await base.AccountRepo.FindByIdAsync(userToAdd.Id);
+            var appUser = await _appUserRepo.FindByIdAsync(userToAdd.Id);
 
             if (await _orgAccountRepo.QueryOrganizationHasAccountAsync(org.Id, userToAdd.Id))
             {
@@ -310,7 +315,7 @@ namespace LagoVista.UserManagement.Managers
             var location = new OrganizationLocation();
             location.SetId();
 
-            var currentUser = await AccountRepo.FindByIdAsync(addedByUser.Id);
+            var currentUser = await _appUserRepo.FindByIdAsync(addedByUser.Id);
             var organization = await _organizationRepo.GetOrganizationAsync(newLocation.OrganizationId);
 
             location.Organization = organization.ToEntityHeader();
@@ -373,7 +378,7 @@ namespace LagoVista.UserManagement.Managers
         #region Location Account
         public async Task AddAccountTosync(String accountId, String locationId, EntityHeader addedBy = null)
         {
-            var appUser = await AccountRepo.FindByIdAsync(accountId);
+            var appUser = await _appUserRepo.FindByIdAsync(accountId);
             var location = await _locationRepo.GetLocationAsync(locationId);
 
             var locationAccount = new LocationAccount(location.Organization.Id, locationId, accountId)
