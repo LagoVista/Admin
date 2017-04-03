@@ -1,7 +1,6 @@
-# LagoVista.Common
+# LagoVista.Admin
 
-Provides User, Organization and Location Storage for LagoVista IoT and Device Framework
+## PROJECT HAS MOVED
 
-Very Early Unstable and Prerelease software for Developing .NET applications with Devices, IoT and Home Automation.
+## New Home [LagoVista User Admin](http://github.com/LagoVista/UserAdmin)
 
-Please contact KevinW@software-logistics.com for more information.
